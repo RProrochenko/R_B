@@ -7,9 +7,8 @@ for PID in $process_pid
     do
         sudo kill -15 $PID
         sleep 10
-        check=$(pidof $name)
-        
-        if  pidof $check | grep $PID
+
+        if  pidof $name | grep $PID
             then
             sudo kill -9 $PID
         fi
