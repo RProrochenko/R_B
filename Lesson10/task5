@@ -1,0 +1,1 @@
+route add default gw 212.100.54.0/24 via 172.26.51.0
