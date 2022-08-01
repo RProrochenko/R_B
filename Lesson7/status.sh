@@ -1,7 +1,7 @@
 #!/bin/bash
 
 name=httpd.service
-process_pid=$(pidof apache2)
+process_pid=$(pidof httpd.service)
 
 for PID in $process_pid
     do
