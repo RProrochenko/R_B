@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                
+                git branch: 'main', credentialsId: '214051aa-2b1c-48e3-a005-5f4390e0dd9b', url: 'https://github.com/RProrochenko/R_B.git'
+                
+            }
+        }
+        
+        stage('Start service') {
+            steps {
+                
+                sh 'sudo systemctl start httpd.service'
+                sh 'sudo systemctl status httpd.service | grep active'
+                
+            }
+        }
+            
+        stage('Start script') {
+            steps {
+                
+                sh 'sh Lesson7/status.sh'
+                
+            }
+        }
+    }
+}
